@@ -21,8 +21,10 @@ score0E1.textContent = 0;
 score1EL.textContent = 0;
 diceEl.classList.add('hidden');
 
+const scores = [0, 0];
 // let variable is going to be reassigned its value, saving current score
 let currentScore = 0;
+let activePlayer = 0; // player 1 is 0
 
 // Rolling dice functionality
 btnRoll.addEventListener('click', function () {
@@ -39,9 +41,15 @@ btnRoll.addEventListener('click', function () {
   if (dice !== 1) {
     // add dice to current score
     currentScore += dice;
+    document.getElementById(
+      `current--${activePlayer}`
+    ).textContent = currentScore;
     current0El.textContent = currentScore; // CHANGE LATER TO CURRENT PLAYER
   } else {
     // Switch to next player
+    // Using the ternary operator to switch the active player
+    // reasigning active player and checking wether active player is currently 0 and switching to 1
+    activePlayer = activePlayer === 0 ? 1 : 0;
   }
   // if true, switch to next player
 });
