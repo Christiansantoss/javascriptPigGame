@@ -2,6 +2,8 @@
 
 // selecting elements
 // changing player 0 score
+const player0El = document.querySelector('.player--0'); // player 1 class name from html file
+const player1El = document.querySelector('.player--1'); // player 2 class name from html file
 const score0E1 = document.querySelector('#score--0');
 
 // getElementById is the same as query selector without hash
@@ -44,12 +46,19 @@ btnRoll.addEventListener('click', function () {
     document.getElementById(
       `current--${activePlayer}`
     ).textContent = currentScore;
-    current0El.textContent = currentScore; // CHANGE LATER TO CURRENT PLAYER
+    // current0El.textContent = currentScore; // CHANGE LATER TO CURRENT PLAYER
   } else {
     // Switch to next player
+
+    document.getElementById(`current--${activePlayer}`).textContent = 0;
+    currentScore = 0;
     // Using the ternary operator to switch the active player
     // reasigning active player and checking wether active player is currently 0 and switching to 1
     activePlayer = activePlayer === 0 ? 1 : 0;
+    // toggle method adds class if its not there  if its there it will remove it
+    player0El.classList.toggle('player--active'); // toggle both
+    player1El.classList.toggle('player--active'); // toggle both
+
+    // if true, switch to next player
   }
-  // if true, switch to next player
 });
