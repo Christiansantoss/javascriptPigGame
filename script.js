@@ -4,10 +4,10 @@
 // changing player 0 score
 const player0El = document.querySelector('.player--0'); // player 1 class name from html file
 const player1El = document.querySelector('.player--1'); // player 2 class name from html file
-const score0E1 = document.querySelector('#score--0');
+const score0El = document.querySelector('#score--0');
 
 // getElementById is the same as query selector without hash
-const score1EL = document.getElementById('score--1');
+const score1El = document.getElementById('score--1');
 // player 0 which is player 1 current score
 const current0El = document.getElementById('current--0');
 // player 2 current score
@@ -18,9 +18,10 @@ const diceEl = document.querySelector('.dice');
 const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
+
 // starting conditions
-score0E1.textContent = 0;
-score1EL.textContent = 0;
+score0El.textContent = 0;
+score1El.textContent = 0;
 diceEl.classList.add('hidden');
 
 const scores = [0, 0];
@@ -100,3 +101,16 @@ btnHold.addEventListener('click', function () {
     }
   }
 });
+
+// btnNew.addEventListener('click', function () {
+//   document.querySelector('#score--0').textContent = 0; // code same for score0El.textcontent
+//   document.getElementById('score--1').textContent = 0;
+//   document.getElementById('current--0').textContent = 0;
+//   document.getElementById('current--1').textContent = 0;
+//   // css style for winning player which is black background
+//   player0El.classList.remove('player-winner');
+//   player1El.classList.remove('player-winner');
+//   player0El.classList.add('player-active');
+//   player1El.classList.remove('player-active');
+//   activePlayer = activePlayer === 1 ? 0 : 1;
+// });
